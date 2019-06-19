@@ -1,4 +1,4 @@
-package br.com.bitscamp.backend;
+package br.com.bitscamp.chatbot;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
