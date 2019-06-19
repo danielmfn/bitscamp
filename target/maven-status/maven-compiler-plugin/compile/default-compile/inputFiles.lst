@@ -1,3 +1,5 @@
-/home/daniel/Documents/projetos/bitscamp/src/main/java/br/com/bitscamp/backend/repository/UsuarioRepository.java
-/home/daniel/Documents/projetos/bitscamp/src/main/java/br/com/bitscamp/backend/controllers/UsuarioController.java
-/home/daniel/Documents/projetos/bitscamp/src/main/java/br/com/bitscamp/backend/BackendApplication.java
+/home/daniel/Documents/projetos/bitscamp/src/main/java/br/com/bitscamp/chatbot/BackendApplication.java
+/home/daniel/Documents/projetos/bitscamp/src/main/java/br/com/bitscamp/chatbot/model/Usuario.java
+/home/daniel/Documents/projetos/bitscamp/src/main/java/br/com/bitscamp/chatbot/indexController.java
+/home/daniel/Documents/projetos/bitscamp/src/main/java/br/com/bitscamp/chatbot/repository/UsuarioRepository.java
+/home/daniel/Documents/projetos/bitscamp/src/main/java/br/com/bitscamp/chatbot/controllers/UsuarioController.java
