@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.bitscamp</groupId>
-	<artifactId>backend</artifactId>
+	<artifactId>chatbot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>backend</name>
+	<name>chatbot</name>
 	<description>Projeto BitsCamp</description>
 
 	<properties>
