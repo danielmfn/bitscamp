@@ -2,10 +2,13 @@ package br.com.bitscamp.chatbot.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,23 +21,40 @@ public class Usuario implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "nome_usuario", nullable = false)
     private String nome;
 
+    @Column(name = "email_usuario")
     private String email;
 
+    @Column(name = "senha_usuario")
     private String senha;
 
+    @Column(name = "nome_cidade")
     private String cidade;
 
+    @ManyToOne
+    @JoinColumn(name = "id_cidade")
+    private String municipio;
+
+    @Column(name = "nome_estado")
     private String estado;
 
+    @Column(name = "endereco_usuario")
     private String endereco;
 
+    @Column(name = "cep_usuario")
     private Long cep;
 
-    private String categoria;
+    @ManyToOne
+    @JoinColumn(name = "id_categoria_usuario", nullable = false)
+    @Column(name = "categoria_usuario")
+    private CategoriaUsuario categoriaUsuario;
 
-    private String perfilCliente;
+    @ManyToOne
+    @JoinColumn(name = "id_perfil_cliente", nullable = false)
+    @Column(name = "perfil_cliente")
+    private PerfilCliente perfilCliente;
 
     public Usuario() {
     }
@@ -103,21 +123,20 @@ public class Usuario implements Serializable{
         this.cep = cep;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public CategoriaUsuario getCategoriaUsuario() {
+        return categoriaUsuario;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setCategoriaUsuario(CategoriaUsuario categoriaUsuario) {
+        this.categoriaUsuario = categoriaUsuario;
     }
 
-    public String getPerfilCliente() {
+    public PerfilCliente getPerfilCliente() {
         return perfilCliente;
     }
 
-    public void setPerfilCliente(String perfilCliente) {
+    public void setPerfilCliente(PerfilCliente perfilCliente) {
         this.perfilCliente = perfilCliente;
     }
-    
-    
+
 }

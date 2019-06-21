@@ -1,14 +1,78 @@
 package br.com.bitscamp.chatbot.controllers;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import java.util.List;
 
-@Controller
+import javax.validation.Valid;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.bitscamp.chatbot.model.Usuario;
+import br.com.bitscamp.chatbot.repository.UsuarioRepository;
+
+// @Controller
+@RestController
 public class UsuarioResource {
 
-    @RequestMapping("/cadastrarUsuario")
-    public String cadastrarUsuario() {
-        return "cadastrarUsuario";
+    @Autowired
+    private UsuarioRepository usuarioRepositorio;
+
+    @PostMapping
+    public Usuario adicionar(@Valid @RequestBody Usuario usuario) {
+        return usuarioRepositorio.save(usuario);
+    }
+
+    @GetMapping
+    public List<Usuario> listar() {
+        return usuarioRepositorio.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Usuario> buscar(@PathVariable Long id) {
+        Usuario usuario = usuarioRepositorio.findById(id).orElse(null);
+
+        if (usuario == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(usuario);
+    }
+
+    @PutMapping("/{id}")
+	public ResponseEntity<Usuario> atualizar(@PathVariable Long id, 
+		@Valid @RequestBody Usuario usuario) {
+            Usuario existente = usuarioRepositorio.findById(id).orElse(null);
+		
+            if (existente == null) {
+                return ResponseEntity.notFound().build();
+            }
+		
+            BeanUtils.copyProperties(usuario, existente, "id");
+            
+            existente = usuarioRepositorio.save(existente);
+            
+            return ResponseEntity.ok(existente);
+    }
+    
+    @DeleteMapping("/{id}")
+	public ResponseEntity<Void> remover(@PathVariable Long id) {
+		Usuario usuario = usuarioRepositorio.findById(id).orElse(null);
+		
+		if (usuario == null) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		usuarioRepositorio.delete(usuario);
+		
+        return ResponseEntity.noContent().build();
     }
 
 }
