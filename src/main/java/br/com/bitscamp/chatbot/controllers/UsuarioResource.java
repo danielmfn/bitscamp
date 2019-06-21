@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class UsuarioResource {
 
-    @RequestMapping("cadastrarusuario")
-    public String form() {
-        return "formUsuario";
+    @RequestMapping("/cadastrarUsuario")
+    public String cadastrarUsuario() {
+        return "cadastrarUsuario";
     }
 
 }

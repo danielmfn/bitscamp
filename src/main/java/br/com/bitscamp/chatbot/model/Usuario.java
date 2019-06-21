@@ -39,8 +39,6 @@ public class Usuario implements Serializable{
     public Usuario() {
     }
 
-    
-
     public Long getId() {
         return id;
     }

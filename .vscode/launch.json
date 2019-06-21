@@ -19,6 +19,16 @@
             "mainClass": "br.com.bitscamp.chatbot.BackendApplication",
             "projectName": "backend",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ChatbotApplication<backend>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "br.com.bitscamp.chatbot.chatbotApplication.ChatbotApplication",
+            "projectName": "backend",
+            "args": ""
         }
     ]
 }

@@ -1,4 +1,4 @@
-package br.com.bitscamp.chatbot;
+package br.com.bitscamp.chatbot.data;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -13,12 +13,11 @@ public class DataConfigurationPostgreSQL {
 
     @Bean
     public BasicDataSource dataSource() throws URISyntaxException {
-        
         URI dbUri = new URI(System.getenv("DATABASE_URL"));
 
         String username = dbUri.getUserInfo().split(":")[0];
         String password = dbUri.getUserInfo().split(":")[1];
-        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath() + "?sslmode=require";
+        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
 
         BasicDataSource basicDataSource = new BasicDataSource();
         basicDataSource.setUrl(dbUrl);
@@ -27,5 +26,4 @@ public class DataConfigurationPostgreSQL {
 
         return basicDataSource;
     }
-    
 }
