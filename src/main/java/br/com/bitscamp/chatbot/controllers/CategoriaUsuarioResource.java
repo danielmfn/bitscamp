@@ -5,7 +5,6 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,41 +15,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.bitscamp.chatbot.model.Usuario;
-import br.com.bitscamp.chatbot.repository.UsuarioRepository;
+import br.com.bitscamp.chatbot.model.CategoriaUsuario;
+import br.com.bitscamp.chatbot.repository.CategoriaUsuarioRepository;
 
 @RestController
-@RequestMapping("/usuario")
-public class UsuarioResource {
+@RequestMapping("/categoriaUsuario")
+public class CategoriaUsuarioResource {
 
-    @Autowired
-    private UsuarioRepository usuarioRepositorio;
+    CategoriaUsuarioRepository categoriaUsuarioRepositorio;
 
     @PostMapping
-    public Usuario adicionar(@Valid @RequestBody Usuario usuario) {
-        return usuarioRepositorio.save(usuario);
+    public CategoriaUsuario adicionar(@Valid @RequestBody CategoriaUsuario categoriaUsuario) {
+        return categoriaUsuarioRepositorio.save(categoriaUsuario);
     }
 
     @GetMapping
-    public List<Usuario> listar() {
-        return usuarioRepositorio.findAll();
+    public List<CategoriaUsuario> listar() {
+        return categoriaUsuarioRepositorio.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Usuario> buscar(@PathVariable Long id) {
-        Usuario usuario = usuarioRepositorio.findById(id).orElse(null);
+    public ResponseEntity<CategoriaUsuario> buscar(@PathVariable Long id) {
+        CategoriaUsuario categoriaUsuario = categoriaUsuarioRepositorio.findById(id).orElse(null);
 
-        if (usuario == null) {
+        if (categoriaUsuario == null) {
             return ResponseEntity.notFound().build();
         }
 
-        return ResponseEntity.ok(usuario);
+        return ResponseEntity.ok(categoriaUsuario);
     }
 
     @PutMapping("/{id}")
-	public ResponseEntity<Usuario> atualizar(@PathVariable Long id, 
-		@Valid @RequestBody Usuario usuario) {
-            Usuario existente = usuarioRepositorio.findById(id).orElse(null);
+	public ResponseEntity<CategoriaUsuario> atualizar(@PathVariable Long id, 
+		@Valid @RequestBody CategoriaUsuario usuario) {
+            CategoriaUsuario existente = categoriaUsuarioRepositorio.findById(id).orElse(null);
 		
             if (existente == null) {
                 return ResponseEntity.notFound().build();
@@ -58,22 +56,21 @@ public class UsuarioResource {
 		
             BeanUtils.copyProperties(usuario, existente, "id");
             
-            existente = usuarioRepositorio.save(existente);
+            existente = categoriaUsuarioRepositorio.save(existente);
             
             return ResponseEntity.ok(existente);
     }
     
     @DeleteMapping("/{id}")
 	public ResponseEntity<Void> remover(@PathVariable Long id) {
-		Usuario usuario = usuarioRepositorio.findById(id).orElse(null);
+		CategoriaUsuario categoriaUsuario = categoriaUsuarioRepositorio.findById(id).orElse(null);
 		
-		if (usuario == null) {
+		if (categoriaUsuario == null) {
 			return ResponseEntity.notFound().build();
 		}
 		
-		usuarioRepositorio.delete(usuario);
+		categoriaUsuarioRepositorio.delete(categoriaUsuario);
 		
         return ResponseEntity.noContent().build();
     }
-
 }
