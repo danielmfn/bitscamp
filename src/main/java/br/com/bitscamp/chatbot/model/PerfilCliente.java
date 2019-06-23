@@ -30,9 +30,6 @@ public class PerfilCliente implements Serializable{
     @OneToMany(mappedBy = "perfilCliente")
     private List<Usuario> usuarios;
 
-    public PerfilCliente() {
-    }
-
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -56,6 +53,15 @@ public class PerfilCliente implements Serializable{
         } else if (!id.equals(other.id))
             return false;
         return true;
+    }
+
+    public PerfilCliente() {
+    }
+
+    public PerfilCliente(Long id, String perfilCliente, List<Usuario> usuarios) {
+        this.id = id;
+        this.perfilCliente = perfilCliente;
+        this.usuarios = usuarios;
     }
 
     public Long getId() {
