@@ -28,7 +28,6 @@ public class Municipio implements Serializable{
     @Column(name = "nome_cidade", nullable = false)
     private String municipio;
 
-    @Transient
     @ManyToOne
     @JoinColumn(name = "id_estado", nullable = false)
     private Estado estado;

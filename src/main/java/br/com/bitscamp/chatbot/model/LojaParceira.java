@@ -38,9 +38,6 @@ public class LojaParceira implements Serializable {
     @JoinColumn(name = "id_cidade")
     private Municipio municipio;
 
-    @Column(name = "nome_estado")
-    private Estado estado;
-
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -70,14 +67,13 @@ public class LojaParceira implements Serializable {
     }
 
     public LojaParceira(Long id, Long cnpj, String nomeEmpresarial, String emailParceiro, Long telefoneParceiro,
-            Municipio municipio, Estado estado) {
+            Municipio municipio) {
         this.id = id;
         this.cnpj = cnpj;
         this.nomeEmpresarial = nomeEmpresarial;
         this.emailParceiro = emailParceiro;
         this.telefoneParceiro = telefoneParceiro;
         this.municipio = municipio;
-        this.estado = estado;
     }
 
     public Long getId() {
@@ -126,14 +122,6 @@ public class LojaParceira implements Serializable {
 
     public void setMunicipio(Municipio municipio) {
         this.municipio = municipio;
-    }
-
-    public Estado getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Estado estado) {
-        this.estado = estado;
     }
 
 }

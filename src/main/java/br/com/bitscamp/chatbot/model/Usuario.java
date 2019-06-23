@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -32,14 +31,9 @@ public class Usuario implements Serializable{
     @Column(name = "senha_usuario")
     private String senha;
 
-    @Transient
     @ManyToOne
     @JoinColumn(name = "id_cidade")
     private Municipio municipio;
-
-    @Transient
-    @Column(name = "nome_estado")
-    private Estado estado;
 
     @Column(name = "endereco_usuario")
     private String endereco;
@@ -83,14 +77,13 @@ public class Usuario implements Serializable{
     public Usuario() {
     }
 
-    public Usuario(Long id, String nome, String email, String senha, Municipio municipio, Estado estado,
-            String endereco, Long cep, CategoriaUsuario categoriaUsuario, PerfilCliente perfilCliente) {
+    public Usuario(Long id, String nome, String email, String senha, Municipio municipio, 
+        String endereco, Long cep, CategoriaUsuario categoriaUsuario, PerfilCliente perfilCliente) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.municipio = municipio;
-        this.estado = estado;
         this.endereco = endereco;
         this.cep = cep;
         this.categoriaUsuario = categoriaUsuario;
@@ -167,14 +160,6 @@ public class Usuario implements Serializable{
 
     public void setMunicipio(Municipio municipio) {
         this.municipio = municipio;
-    }
-
-    public Estado getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Estado estado) {
-        this.estado = estado;
     }
 
 }
