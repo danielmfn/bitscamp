@@ -18,7 +18,7 @@ public class Usuario implements Serializable{
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "nome_usuario", nullable = false)
@@ -30,15 +30,12 @@ public class Usuario implements Serializable{
     @Column(name = "senha_usuario")
     private String senha;
 
-    @Column(name = "nome_cidade")
-    private String cidade;
-
     @ManyToOne
     @JoinColumn(name = "id_cidade")
-    private String municipio;
+    private Municipio municipio;
 
     @Column(name = "nome_estado")
-    private String estado;
+    private Estado estado;
 
     @Column(name = "endereco_usuario")
     private String endereco;
@@ -48,15 +45,27 @@ public class Usuario implements Serializable{
 
     @ManyToOne
     @JoinColumn(name = "id_categoria_usuario", nullable = false)
-    @Column(name = "categoria_usuario")
     private CategoriaUsuario categoriaUsuario;
 
     @ManyToOne
     @JoinColumn(name = "id_perfil_cliente", nullable = false)
-    @Column(name = "perfil_cliente")
     private PerfilCliente perfilCliente;
 
     public Usuario() {
+    }
+
+    public Usuario(Long id, String nome, String email, String senha, Municipio municipio, Estado estado,
+            String endereco, Long cep, CategoriaUsuario categoriaUsuario, PerfilCliente perfilCliente) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.municipio = municipio;
+        this.estado = estado;
+        this.endereco = endereco;
+        this.cep = cep;
+        this.categoriaUsuario = categoriaUsuario;
+        this.perfilCliente = perfilCliente;
     }
 
     public Long getId() {
@@ -91,22 +100,6 @@ public class Usuario implements Serializable{
         this.senha = senha;
     }
 
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
     public String getEndereco() {
         return endereco;
     }
@@ -137,6 +130,22 @@ public class Usuario implements Serializable{
 
     public void setPerfilCliente(PerfilCliente perfilCliente) {
         this.perfilCliente = perfilCliente;
+    }
+
+    public Municipio getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(Municipio municipio) {
+        this.municipio = municipio;
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
 
 }

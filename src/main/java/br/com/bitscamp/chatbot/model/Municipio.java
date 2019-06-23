@@ -1,15 +1,19 @@
 package br.com.bitscamp.chatbot.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+@Entity
 @Table(name = "tb_cidade")
 public class Municipio implements Serializable{
 
@@ -27,7 +31,17 @@ public class Municipio implements Serializable{
     @JoinColumn(name = "id_estado", nullable = false)
     private Estado estado;
 
+    @OneToMany(mappedBy = "municipio")
+    private List<Usuario> usuarios;
+
     public Municipio() {
+    }
+
+    public Municipio(Long id, String municipio, Estado estado, List<Usuario> usuarios) {
+        this.id = id;
+        this.municipio = municipio;
+        this.estado = estado;
+        this.usuarios = usuarios;
     }
 
     public Long getId() {
@@ -52,6 +66,14 @@ public class Municipio implements Serializable{
 
     public void setEstado(Estado estado) {
         this.estado = estado;
+    }
+
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
     }
 
 }

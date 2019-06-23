@@ -1,4 +1,4 @@
-package br.com.bitscamp.chatbot.controllers;
+package br.com.bitscamp.chatbot.controller;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package br.com.bitscamp.chatbot.controllers;
+package br.com.bitscamp.chatbot.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class indexResource {
     @RequestMapping("/")
     public String index(){
-        return "base";
+        return "index";
     }
 }
