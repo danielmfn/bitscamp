@@ -17,7 +17,7 @@ function buscarUsuariosAll(){
         type : 'GET',
         url : '/usuario',
         success : function (result) {
-            criarTabelaUsuario(result);
+            criarTabelaUsuarios(result);
         },
         error: function (error) {
             console.log(error);
