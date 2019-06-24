@@ -10,7 +10,7 @@ $('#usuarioRows tbody').on( 'click', 'tr.group', function () {
 } );
 
 $("#buscarUsuario").on('click', function() {
-    let emailUsuario = $("#emailUsuario").val();
+    let emailUsuario = $('#emailUsuario').val();
     if (emailUsuario != "") {
         $("#usuarioResult").html('');
         listarUsuario(emailUsuario);
@@ -18,22 +18,6 @@ $("#buscarUsuario").on('click', function() {
 });
 
 $("#buscarUsuariosAll").on('click', function() {
+    $("#usuarioResult").html('');
     buscarUsuariosAll();
-});
-
-$("#removerUsuario").on('click', function() {
-    let idUsuarioDelete = $("#idUsuarioDelete").val();
-    if (idUsuarioDelete != ""){
-        $("#idUsuarioDelete").html('');
-        deletarUsuario(idUsuarioDelete);
-    }
-});
-
-$("#listarUsuarioAlteracao").on('click', function() {
-    let idUsuarioAlter = $("#idUsuarioAlter").val();
-    if (idUsuarioAlter != ""){
-        $("#idUsuarioAlter").html('');
-        alterarUsuario(idUsuarioAlter);
-    }
-
 });

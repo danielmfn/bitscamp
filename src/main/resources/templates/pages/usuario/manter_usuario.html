@@ -26,6 +26,12 @@
     <!-- Morris Chart Css-->
     <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
 
+    <!-- Data Tables Css -->
+    <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+    <!-- SweetAlert Plugin CSS -->
+    <link href="plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
+
     <!-- Custom Css -->
     <link href="css/style.css" rel="stylesheet">
 
@@ -221,33 +227,40 @@
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li role="presentation" class="active">
-                                        <a href="#encontrarPorEmail" data-toggle="tab">
+                                        <a href="#encontrar" data-toggle="tab">
                                             <i class="material-icons">search</i> ENCONTRAR
                                         </a>
                                     </li>
                                     <li role="presentation">
-                                        <a href="#profile_with_icon_title" data-toggle="tab">
+                                        <a href="#cadastrar" data-toggle="tab">
                                             <i class="material-icons">person_add</i> CADASTRAR
                                         </a>
                                     </li>
                                     <li role="presentation">
-                                        <a href="#messages_with_icon_title" data-toggle="tab">
+                                        <a href="#alterar" data-toggle="tab">
                                             <i class="material-icons">settings</i> ALTERAR
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#remover" data-toggle="tab">
+                                            <i class="material-icons">delete</i> REMOVER
                                         </a>
                                     </li>
                                 </ul>
     
-                                <!-- Tab panes -->
+                                <!-- Tab Pane Content-->
                                 <div class="tab-content">
-                                    <div role="tabpanel" class="tab-pane fade in active" id="encontrarPorEmail">
+
+                                    <!-- Tab Pane Encontrar Usuário-->
+                                    <div role="tabpanel" class="tab-pane fade in active" id="encontrar">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <div class="box-col-group">
-                                                        <label for="emailUsuario">Id</label>
+                                                        <label for="emailUsuario">Código</label>
                                                             <div class="input-group">
                                                                 <div class="form-line">
-                                                                    <input type="text" id="emailUsuario" name="emailUsuario" class="form-control date" placeholder="Insira o Id do Usuário">
+                                                                    <input type="text" id="emailUsuario" name="emailUsuario" class="form-control date" placeholder="Insira o Código do Usuário">
                                                                 </div>
                                                                 <span class="input-group-addon">
                                                                     <a id="buscarUsuario" href="javascript:void(0);">
@@ -259,34 +272,75 @@
                                                 </div>
                                                 
                                                 <div class="col-md-2 pull-right">
+                                                    <div class="box-col-group">
                                                         <button type="button" class="btn bg-indigo waves-effect" id="buscarUsuariosAll">
-                                                                <i class="material-icons">search</i>
-                                                                <span>Buscar Todos</span>
+                                                            <i class="material-icons">search</i>
+                                                            <span>Buscar Todos</span>
                                                         </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div id="usuarioResult"></div>
                                         </div>
                                     </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="profile_with_icon_title">
-                                        <b>Profile Content</b>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation electram moderatius.
-                                            Per te suavitate democritum. Duis nemore probatus ne quo, ad liber essent aliquid
-                                            pro. Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren
-                                            sadipscing mel.
-                                        </p>
+                                    <!-- #END Tab Pane Encontrar Usuário-->
+
+                                    <div role="tabpanel" class="tab-pane fade" id="cadastrar">
+                                        <b>Cadastrar</b>
+
                                     </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="messages_with_icon_title">
-                                        <b>Message Content</b>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation electram moderatius.
-                                            Per te suavitate democritum. Duis nemore probatus ne quo, ad liber essent aliquid
-                                            pro. Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren
-                                            sadipscing mel.
-                                        </p>
+
+                                    <!-- Tab Pane Alterar Usuário-->
+                                    <div role="tabpanel" class="tab-pane fade" id="alterar">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="col-md-3">
+                                                    <div class="box-col-group">
+                                                        <label for="idUsuarioAlter">Código</label>
+                                                        <div class="input-group">
+                                                            <div class="form-line">
+                                                                <input type="text" id="idUsuarioAlter" name="idUsuarioAlter" class="form-control date" placeholder="Insira o Código do Usuário">
+                                                            </div>
+                                                            <span class="input-group-addon">
+                                                                <a id="listarUsuarioAlteracao" href="javascript:void(0);">
+                                                                    <i class="material-icons">delete</i>
+                                                                </a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <!-- #END Tab Pane Alterar Usuário-->
+
+                                    <!-- Tab Pane Remover Usuário-->
+                                    <div role="tabpanel" class="tab-pane fade" id="remover">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="col-md-3">
+                                                    <div class="box-col-group">
+                                                        <label for="idUsuarioDelete">Código</label>
+                                                        <div class="input-group">
+                                                            <div class="form-line">
+                                                                <input type="text" id="idUsuarioDelete" name="idUsuarioDelete" class="form-control date" placeholder="Insira o Código do Usuário">
+                                                            </div>
+                                                            <span class="input-group-addon">
+                                                                <a id="removerUsuario" href="javascript:void(0);">
+                                                                    <i class="material-icons">delete</i>
+                                                                </a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- #END Tab Pane Remover Usuário-->
+
                                 </div>
+                                <!-- #END Tab Pane Content-->
+
                             </div>
                         </div>
                     </div>
@@ -311,6 +365,9 @@
     <!-- Waves Effect Plugin Js -->
     <script src="plugins/node-waves/waves.js"></script>
 
+    <!-- SweetAlert Plugin Js -->
+    <script src="plugins/sweetalert/sweetalert.min.js"></script>
+
     <!-- Jquery CountTo Plugin Js -->
     <script src="plugins/jquery-countto/jquery.countTo.js"></script>
 
@@ -330,6 +387,9 @@
 
     <!-- Sparkline Chart Plugin Js -->
     <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
+    <!-- Jquery DataTables -->
+    <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
 
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
