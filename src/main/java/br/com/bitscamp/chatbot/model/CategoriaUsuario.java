@@ -27,7 +27,7 @@ public class CategoriaUsuario implements Serializable{
     private String categoria;
 
     @Transient
-    @OneToMany(mappedBy = "categoriaUsuario")
+    @OneToMany(mappedBy = "categoria")
     private List<Usuario> usuarios;
 
     @Override
