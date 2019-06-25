@@ -34,6 +34,12 @@ public class Loja implements Serializable {
     @Column(name = "telefone_loja")
     private Long telefone;
 
+    @Column(name = "cep_loja")
+    private Long cep;
+
+    @Column(name = "endereco_loja")
+    private String endereco;
+
     @Column(name = "municipio_loja")
     private String municipio;
 
@@ -69,12 +75,15 @@ public class Loja implements Serializable {
     public Loja() {
     }
 
-    public Loja(Long id, Long cnpj, String nome, String email, Long telefone, String municipio, Estado estado) {
+    public Loja(Long id, Long cnpj, String nome, String email, Long telefone, Long cep, String endereco,
+            String municipio, Estado estado) {
         this.id = id;
         this.cnpj = cnpj;
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
+        this.cep = cep;
+        this.endereco = endereco;
         this.municipio = municipio;
         this.estado = estado;
     }
@@ -117,6 +126,22 @@ public class Loja implements Serializable {
 
     public void setTelefone(Long telefone) {
         this.telefone = telefone;
+    }
+
+    public Long getCep() {
+        return cep;
+    }
+
+    public void setCep(Long cep) {
+        this.cep = cep;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public String getMunicipio() {

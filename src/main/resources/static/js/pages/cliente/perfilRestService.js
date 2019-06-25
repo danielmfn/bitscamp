@@ -1,86 +1,86 @@
 // Função P/ Buscar Usuário Por Id
-function buscarUsuario(idUsuario){
+function buscarPerfil(idPerfil){
     $.ajax({
         method : 'GET',
-        url : '/usuario/'+idUsuario,
+        url : '/perfilCliente/'+idPerfil,
         success : function (result) {
-            criarTabelaUsuario(result);
+            criarTabelaPerfil(result);
             console.log(result);
         },
         error: function (error) {
-            swal("Erro :(", "Não foi possível buscar o usuário: "+idUsuario, "error");
+            swal("Erro :(", "Não foi possível buscar o perfil: "+idPerfil, "error");
             console.log(error);
         }
     });
 }
 
 // Função P/ Buscar Todos os Usuários
-function buscarUsuariosAll(){
+function buscarPerfisAll(){
     $.ajax({
         method : 'GET',
-        url : '/usuario',
+        url : '/perfilCliente',
         success : function (result) {
-            $("#usuarioResult").html('');
-            criarTabelaUsuarios(result);
+            $("#perfilResult").html('');
+            criarTabelaPerfis(result);
             console.log(result);
         },
         error: function (error) {
-            swal("Erro :(", "Não foi possível buscar os usuário: ", "warning");
+            swal("Erro :(", "Não foi possível buscar os perfis: ", "warning");
             console.log(error);
         }
     });
 }
 
 // Função p/ cadastrar usuário
-function adicionarUsuario(usuario) {
+function adicionarPerfil(perfil) {
     $.ajax({
         method : 'POST',
-        url : '/usuario',
+        url : '/perfilCliente',
         contentType: 'application/json',
-        data : usuario,
+        data : perfil,
         success : function (result) {
-            swal("Sucesso :)", "Usuário adicionado com sucesso.", "success");
-            limparUsuarioAdd();
+            swal("Sucesso :)", "Perfil adicionada com sucesso.", "success");
+            limparPerfilAdd();
             console.log(result);
         },
         error: function (error) {
-            swal("Erro :(", "Não foi possível adicionar o usuário.", "error");
+            swal("Erro :(", "Não foi possível adicionar o perfil.", "error");
             console.log(error);
         }
     });
 };
 
 // Função p/ alterar usuário
-function alterarUsuario(usuario) {
+function alterarPerfil(perfil) {
     $.ajax({
         method : 'POST',
-        url : '/usuario',
+        url : '/perfilCliente',
         contentType: 'application/json',
-        data : usuario,
+        data : perfil,
         success : function (result) {
-            swal("Sucesso :)", "Usuário alterado com sucesso.", "success");
-            limparUsuarioAlt();
+            swal("Sucesso :)", "Perfil alterada com sucesso.", "success");
+            limparPerfilAlt();
             console.log(result);
         },
         error: function (error) {
-            swal("Erro :(", "Não foi possível alterar o usuário.", "error");
+            swal("Erro :(", "Não foi possível alterar o perfil.", "error");
             console.log(error);
         }
     });
 };
 
 // Função P/ Remover Usuário Por Id
-function removerUsuario(idUsuario) {
+function removerPerfil(idPerfil) {
     $.ajax({
         method : 'DELETE',
-        url : '/usuario/'+idUsuario,
+        url : '/perfilCliente/'+idPerfil,
         success : function (result) {
-            swal("Sucesso :)", "Usuário Removido: "+idUsuario, "success");
-            limparUsuarioDel();
+            swal("Sucesso :)", "Perfil Removida: "+idPerfil, "success");
+            limparPerfilDel();
             console.log(result);
         },
         error: function (error) {
-            swal("Erro :(", "Não foi possível remover o usuário: "+idUsuario, "error");
+            swal("Erro :(", "Não foi possível remover o perfil: "+idPerfil, "error");
             console.log(error);
         }
     });
@@ -88,32 +88,32 @@ function removerUsuario(idUsuario) {
 
 
 // Função p/ buscar 1 usuário p/ alteração 
-function buscarUsuarioAlt(idUsuario) {
+function buscarPerfilAlt(idPerfil) {
     $.ajax({
         method : 'GET',
-        url : '/usuario/'+idUsuario,
+        url : '/perfilCliente/'+idPerfil,
         success : function (result) {
-            preencherUsuarioAlt(result);
+            preencherPerfilAlt(result);
             console.log(result);
         },
         error: function (error) {
-            swal("Erro :(", "Não foi possível encontrar o usuário: "+idUsuario, "error");
+            swal("Erro :(", "Não foi possível encontrar o perfil: "+idPerfil, "error");
             console.log(error);
         }
     });
 }
 
 // Função p/ buscar 1 usuário p/ remover
-function buscarUsuarioDel(idUsuarioDel){
+function buscarPerfilDel(idPerfilDel){
     $.ajax({
         method : 'GET',
-        url : '/usuario/'+idUsuarioDel,
+        url : '/perfilCliente/'+idPerfilDel,
         success : function (result) {
-            criarTabelaUsuarioDel(result);
+            criarTabelaPerfilDel(result);
             console.log(result);
         },
         error: function (error) {
-            swal("Erro :(", "Não foi possível buscar o usuário: "+idUsuarioDel, "error");
+            swal("Erro :(", "Não foi possível buscar o perfil: "+idPerfilDel, "error");
             console.log(error);
         }
     });

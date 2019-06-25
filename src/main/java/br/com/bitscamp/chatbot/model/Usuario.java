@@ -25,7 +25,7 @@ public class Usuario implements Serializable{
     @Column(name = "nome_usuario", nullable = false)
     private String nome;
 
-    @Column(name = "email_usuario")
+    @Column(name = "email_usuario", nullable = false)
     private String email;
 
     @Column(name = "senha_usuario")
@@ -52,7 +52,7 @@ public class Usuario implements Serializable{
     private PerfilCliente perfil;
 
     @ManyToOne
-    @JoinColumn(name = "id_estado", nullable = false)
+    @JoinColumn(name = "id_estado")
     private Estado estado;
 
     @Override
