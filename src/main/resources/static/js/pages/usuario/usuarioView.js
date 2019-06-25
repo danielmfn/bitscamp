@@ -82,9 +82,10 @@ function usuarioAlteracaoList(usuario) {
     $("#nomeUsuarioAlt").val(usuario.nome);
     $("#emailUsuarioAlt").val(usuario.email);
     $("#categoriaUsuarioAlt").val(usuario.categoria.id);
-    $("#municipioUsuarioAlt").val(usuario.municipio.id);
+    $("#municipioUsuarioAlt").val(usuario.municipio);
     $("#enderecoUsuarioAlt").val(usuario.endereco);
     $("#cepUsuarioAlt").val(usuario.cep);
     $("#perfilUsuarioAlt").val(usuario.perfil.id);
+    $("#telefoneUsuarioAlt").val(usuario.telefone);
 
 }
