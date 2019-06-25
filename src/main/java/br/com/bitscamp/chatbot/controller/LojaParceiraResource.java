@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.bitscamp.chatbot.model.LojaParceira;
+import br.com.bitscamp.chatbot.model.Loja;
 import br.com.bitscamp.chatbot.repository.LojaParceiraRepository;
 
 @RestController
@@ -27,18 +27,18 @@ public class LojaParceiraResource {
     private LojaParceiraRepository lojaParceira;
 
     @PostMapping
-    public LojaParceira adicionar(@Valid @RequestBody LojaParceira loja) {
+    public Loja adicionar(@Valid @RequestBody Loja loja) {
         return lojaParceira.save(loja);
     }
 
     @GetMapping
-    public List<LojaParceira> listar() {
+    public List<Loja> listar() {
         return lojaParceira.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<LojaParceira> buscar(@PathVariable Long id) {
-        LojaParceira loja = lojaParceira.findById(id).orElse(null);
+    public ResponseEntity<Loja> buscar(@PathVariable Long id) {
+        Loja loja = lojaParceira.findById(id).orElse(null);
 
         if (loja == null) {
             return ResponseEntity.notFound().build();
@@ -48,9 +48,9 @@ public class LojaParceiraResource {
     }
 
     @PutMapping("/{id}")
-	public ResponseEntity<LojaParceira> atualizar(@PathVariable Long id, 
-		@Valid @RequestBody LojaParceira loja) {
-            LojaParceira existente = lojaParceira.findById(id).orElse(null);
+	public ResponseEntity<Loja> atualizar(@PathVariable Long id, 
+		@Valid @RequestBody Loja loja) {
+            Loja existente = lojaParceira.findById(id).orElse(null);
 		
             if (existente == null) {
                 return ResponseEntity.notFound().build();
@@ -65,7 +65,7 @@ public class LojaParceiraResource {
     
     @DeleteMapping("/{id}")
 	public ResponseEntity<Void> remover(@PathVariable Long id) {
-		LojaParceira loja = lojaParceira.findById(id).orElse(null);
+		Loja loja = lojaParceira.findById(id).orElse(null);
 		
 		if (loja == null) {
 			return ResponseEntity.notFound().build();

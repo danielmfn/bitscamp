@@ -29,11 +29,11 @@ $("#removerUsuario").on('click', function() {
     }
 });
 
-$("#listarUsuarioAlteracao").on('click', function() {
-    let idUsuarioAlter = $("#idUsuarioAlter").val();
+$("#listUsuarioAlt").on('click', function() {
+    let idUsuarioAlter = $("#idUsuarioAlt").val();
     if (idUsuarioAlter != ""){
-        $("#idUsuarioAlter").html('');
         alterarUsuario(idUsuarioAlter);
+        // $("#idUsuarioAlt").html('');
     }
 
 });

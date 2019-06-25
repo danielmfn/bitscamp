@@ -28,7 +28,11 @@ public class Estado implements Serializable{
 
     @Transient
     @OneToMany(mappedBy = "estado")
-    private List<Municipio> municipios;
+    private List<Usuario> usuarios;
+
+    @Transient
+    @OneToMany(mappedBy = "estado")
+    private List<Loja> lojas;
 
     @Override
     public int hashCode() {
@@ -58,10 +62,9 @@ public class Estado implements Serializable{
     public Estado() {
     }
 
-    public Estado(Long id, String estado, List<Municipio> municipios) {
+    public Estado(Long id, String estado) {
         this.id = id;
         this.estado = estado;
-        this.municipios = municipios;
     }
     
     public Long getId() {

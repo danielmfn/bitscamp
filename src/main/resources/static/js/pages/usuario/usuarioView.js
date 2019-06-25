@@ -79,4 +79,12 @@ function criarTabelaUsuario(usuario) {
 // Preencher Formulário de Alteração de Usuário
 function usuarioAlteracaoList(usuario) {
 
+    $("#nomeUsuarioAlt").val(usuario.nome);
+    $("#emailUsuarioAlt").val(usuario.email);
+    $("#categoriaUsuarioAlt").val(usuario.categoriaUsuario.id);
+    $("#municipioUsuarioAlt").val(usuario.municipio.id);
+    $("#enderecoUsuarioAlt").val(usuario.endereco);
+    $("#cepUsuarioAlt").val(usuario.cep);
+    $("#perfilUsuarioAlt").val(usuario.perfilCliente.id);
+
 }

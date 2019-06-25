@@ -12,38 +12,30 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_usuario")
-public class Usuario implements Serializable{
+@Table(name = "tb_loja")
+public class Loja implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario")
+    @Column(name = "id_loja")
     private Long id;
 
-    @Column(name = "nome_usuario", nullable = false)
+    @Column(name = "cnpj_loja")
+    private Long cnpj;
+
+    @Column(name = "nome_loja")
     private String nome;
 
-    @Column(name = "email_usuario")
+    @Column(name = "email_loja")
     private String email;
 
-    @Column(name = "senha_usuario")
-    private String senha;
+    @Column(name = "telefone_loja")
+    private Long telefone;
 
-    @Column(name = "endereco_usuario")
-    private String endereco;
-
-    @Column(name = "cep_usuario")
-    private Long cep;
-
-    @ManyToOne
-    @JoinColumn(name = "id_categoria_usuario", nullable = false)
-    private CategoriaUsuario categoria;
-
-    @ManyToOne
-    @JoinColumn(name = "id_perfil_cliente", nullable = false)
-    private PerfilCliente perfil;
+    @Column(name = "cidade_loja")
+    private Long cidade;
 
     @ManyToOne
     @JoinColumn(name = "id_estado", nullable = false)
@@ -65,7 +57,7 @@ public class Usuario implements Serializable{
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Usuario other = (Usuario) obj;
+        Loja other = (Loja) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
@@ -73,20 +65,17 @@ public class Usuario implements Serializable{
             return false;
         return true;
     }
-    
-    public Usuario() {
+
+    public Loja() {
     }
 
-    public Usuario(Long id, String nome, String email, String senha, String endereco, Long cep,
-            CategoriaUsuario categoria, PerfilCliente perfil, Estado estado) {
+    public Loja(Long id, Long cnpj, String nome, String email, Long telefone, Long cidade, Estado estado) {
         this.id = id;
+        this.cnpj = cnpj;
         this.nome = nome;
         this.email = email;
-        this.senha = senha;
-        this.endereco = endereco;
-        this.cep = cep;
-        this.categoria = categoria;
-        this.perfil = perfil;
+        this.telefone = telefone;
+        this.cidade = cidade;
         this.estado = estado;
     }
 
@@ -96,6 +85,14 @@ public class Usuario implements Serializable{
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(Long cnpj) {
+        this.cnpj = cnpj;
     }
 
     public String getNome() {
@@ -114,44 +111,20 @@ public class Usuario implements Serializable{
         this.email = email;
     }
 
-    public String getSenha() {
-        return senha;
+    public Long getTelefone() {
+        return telefone;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setTelefone(Long telefone) {
+        this.telefone = telefone;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public Long getCidade() {
+        return cidade;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public Long getCep() {
-        return cep;
-    }
-
-    public void setCep(Long cep) {
-        this.cep = cep;
-    }
-
-    public CategoriaUsuario getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(CategoriaUsuario categoria) {
-        this.categoria = categoria;
-    }
-
-    public PerfilCliente getPerfil() {
-        return perfil;
-    }
-
-    public void setPerfil(PerfilCliente perfil) {
-        this.perfil = perfil;
+    public void setCidade(Long cidade) {
+        this.cidade = cidade;
     }
 
     public Estado getEstado() {

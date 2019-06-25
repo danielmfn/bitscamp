@@ -61,16 +61,15 @@ function listarUsuarioAlteracao(emailUsuario){
 }
 
 // Função P/ Alterar Usuário Por Id
-function alterarUsuario(alterarUsuario) {
+function alterarUsuario(idUsuarioAlter) {
     $.ajax({
-        method : 'DELETE',
-        url : '/usuario/'+idUsuario,
-        success : function () {
-            swal("Sucesso :)", "Usuário Removido: "+idUsuario, "success");
-            buscarUsuariosAll();
+        method : 'GET',
+        url : '/usuario/'+idUsuarioAlter,
+        success : function (result) {
+            usuarioAlteracaoList(result);
         },
         error: function (error) {
-            swal("Erro :(", "Não foi possível remover o usuário: "+idUsuario, "error");
+            swal("Erro :(", "Não foi possível encontrar o usuário: "+idUsuarioAlter, "error");
             console.log(error);
         }
     });

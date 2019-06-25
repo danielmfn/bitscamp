@@ -24,7 +24,7 @@ public class CategoriaUsuario implements Serializable{
     private Long id;
 
     @Column(name = "categoria_usuario")
-    private String categoriaUsuario;
+    private String categoria;
 
     @Transient
     @OneToMany(mappedBy = "categoriaUsuario")
@@ -58,9 +58,9 @@ public class CategoriaUsuario implements Serializable{
     public CategoriaUsuario() {
     }
 
-    public CategoriaUsuario(Long id, String categoriaUsuario) {
+    public CategoriaUsuario(Long id, String categoria) {
         this.id = id;
-        this.categoriaUsuario = categoriaUsuario;
+        this.categoria = categoria;
     }
 
     public Long getId() {
@@ -72,11 +72,11 @@ public class CategoriaUsuario implements Serializable{
     }
 
     public String getCategoriaUsuario() {
-        return categoriaUsuario;
+        return categoria;
     }
 
-    public void setCategoriaUsuario(String categoriaUsuario) {
-        this.categoriaUsuario = categoriaUsuario;
+    public void setCategoriaUsuario(String categoria) {
+        this.categoria = categoria;
     }
 
     public List<Usuario> getUsuarios() {

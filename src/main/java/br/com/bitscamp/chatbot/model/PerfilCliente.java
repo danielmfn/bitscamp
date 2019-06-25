@@ -24,10 +24,10 @@ public class PerfilCliente implements Serializable{
     private Long id;
 
     @Column(name = "perfil_cliente")
-    private String perfilCliente;
+    private String perfil;
 
     @Transient
-    @OneToMany(mappedBy = "perfilCliente")
+    @OneToMany(mappedBy = "perfil")
     private List<Usuario> usuarios;
 
     @Override
@@ -58,9 +58,9 @@ public class PerfilCliente implements Serializable{
     public PerfilCliente() {
     }
 
-    public PerfilCliente(Long id, String perfilCliente, List<Usuario> usuarios) {
+    public PerfilCliente(Long id, String perfil, List<Usuario> usuarios) {
         this.id = id;
-        this.perfilCliente = perfilCliente;
+        this.perfil = perfil;
         this.usuarios = usuarios;
     }
 
@@ -73,11 +73,11 @@ public class PerfilCliente implements Serializable{
     }
 
     public String getPerfilCliente() {
-        return perfilCliente;
+        return perfil;
     }
 
-    public void setPerfilCliente(String perfilCliente) {
-        this.perfilCliente = perfilCliente;
+    public void setPerfilCliente(String perfil) {
+        this.perfil = perfil;
     }
 
     public List<Usuario> getUsuarios() {
