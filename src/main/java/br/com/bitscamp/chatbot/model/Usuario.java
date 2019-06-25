@@ -31,11 +31,17 @@ public class Usuario implements Serializable{
     @Column(name = "senha_usuario")
     private String senha;
 
+    @Column(name = "municipio_usuario")
+    private String municipio;
+
     @Column(name = "endereco_usuario")
     private String endereco;
 
     @Column(name = "cep_usuario")
     private Long cep;
+
+    @Column(name = "telefone_usuario")
+    private Long telefone;
 
     @ManyToOne
     @JoinColumn(name = "id_categoria_usuario", nullable = false)
@@ -77,14 +83,16 @@ public class Usuario implements Serializable{
     public Usuario() {
     }
 
-    public Usuario(Long id, String nome, String email, String senha, String endereco, Long cep,
-            CategoriaUsuario categoria, PerfilCliente perfil, Estado estado) {
+    public Usuario(Long id, String nome, String email, String senha, String municipio, String endereco, Long cep,
+            Long telefone, CategoriaUsuario categoria, PerfilCliente perfil, Estado estado) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+        this.municipio = municipio;
         this.endereco = endereco;
         this.cep = cep;
+        this.telefone = telefone;
         this.categoria = categoria;
         this.perfil = perfil;
         this.estado = estado;
@@ -122,6 +130,14 @@ public class Usuario implements Serializable{
         this.senha = senha;
     }
 
+    public String getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
+    }
+
     public String getEndereco() {
         return endereco;
     }
@@ -136,6 +152,14 @@ public class Usuario implements Serializable{
 
     public void setCep(Long cep) {
         this.cep = cep;
+    }
+
+    public Long getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(Long telefone) {
+        this.telefone = telefone;
     }
 
     public CategoriaUsuario getCategoria() {

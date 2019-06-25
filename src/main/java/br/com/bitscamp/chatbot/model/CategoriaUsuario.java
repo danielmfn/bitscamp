@@ -58,9 +58,10 @@ public class CategoriaUsuario implements Serializable{
     public CategoriaUsuario() {
     }
 
-    public CategoriaUsuario(Long id, String categoria) {
+    public CategoriaUsuario(Long id, String categoria, List<Usuario> usuarios) {
         this.id = id;
         this.categoria = categoria;
+        this.usuarios = usuarios;
     }
 
     public Long getId() {
@@ -71,11 +72,11 @@ public class CategoriaUsuario implements Serializable{
         this.id = id;
     }
 
-    public String getCategoriaUsuario() {
+    public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoriaUsuario(String categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
@@ -86,5 +87,5 @@ public class CategoriaUsuario implements Serializable{
     public void setUsuarios(List<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
-
+    
 }

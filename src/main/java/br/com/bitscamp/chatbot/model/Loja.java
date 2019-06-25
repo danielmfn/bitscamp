@@ -34,8 +34,8 @@ public class Loja implements Serializable {
     @Column(name = "telefone_loja")
     private Long telefone;
 
-    @Column(name = "cidade_loja")
-    private Long cidade;
+    @Column(name = "municipio_loja")
+    private String municipio;
 
     @ManyToOne
     @JoinColumn(name = "id_estado", nullable = false)
@@ -69,13 +69,13 @@ public class Loja implements Serializable {
     public Loja() {
     }
 
-    public Loja(Long id, Long cnpj, String nome, String email, Long telefone, Long cidade, Estado estado) {
+    public Loja(Long id, Long cnpj, String nome, String email, Long telefone, String municipio, Estado estado) {
         this.id = id;
         this.cnpj = cnpj;
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
-        this.cidade = cidade;
+        this.municipio = municipio;
         this.estado = estado;
     }
 
@@ -119,12 +119,12 @@ public class Loja implements Serializable {
         this.telefone = telefone;
     }
 
-    public Long getCidade() {
-        return cidade;
+    public String getMunicipio() {
+        return municipio;
     }
 
-    public void setCidade(Long cidade) {
-        this.cidade = cidade;
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
     }
 
     public Estado getEstado() {

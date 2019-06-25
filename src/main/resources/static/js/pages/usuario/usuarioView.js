@@ -27,14 +27,14 @@ function criarTabelaUsuarios(usuario) {
             <td>${usuario[i].id}</td>
             <td>${usuario[i].nome}</td>
             <td>${usuario[i].email}</td>
-            <td>${usuario[i].categoriaUsuario.categoriaUsuario}</td>
+            <td>${usuario[i].categoria.categoria}</td>
         </tr>`
         );
     }
 
     $('#tabelaUsuario').DataTable({
         "responsive": true,
-        "displayLength": 25,
+        "displayLength": 10,
         "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "ALL"]]
     });
 }
@@ -59,7 +59,7 @@ function criarTabelaUsuario(usuario) {
                         <td>${usuario.id}</td>
                         <td>${usuario.nome}</td>
                         <td>${usuario.email}</td>
-                        <td>${usuario.categoriaUsuario.categoriaUsuario}</td>
+                        <td>${usuario.categoria.categoria}</td>
                     </tr>`
                     }
                     </tbody>
@@ -71,7 +71,7 @@ function criarTabelaUsuario(usuario) {
 
     $('#tabelaUsuario').DataTable({
         "responsive": true,
-        "displayLength": 25,
+        "displayLength": 10,
         "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "ALL"]]
     });
 }
@@ -81,10 +81,10 @@ function usuarioAlteracaoList(usuario) {
 
     $("#nomeUsuarioAlt").val(usuario.nome);
     $("#emailUsuarioAlt").val(usuario.email);
-    $("#categoriaUsuarioAlt").val(usuario.categoriaUsuario.id);
+    $("#categoriaUsuarioAlt").val(usuario.categoria.id);
     $("#municipioUsuarioAlt").val(usuario.municipio.id);
     $("#enderecoUsuarioAlt").val(usuario.endereco);
     $("#cepUsuarioAlt").val(usuario.cep);
-    $("#perfilUsuarioAlt").val(usuario.perfilCliente.id);
+    $("#perfilUsuarioAlt").val(usuario.perfil.id);
 
 }

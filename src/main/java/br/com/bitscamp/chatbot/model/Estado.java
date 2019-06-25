@@ -23,7 +23,7 @@ public class Estado implements Serializable{
     @Column(name = "id_estado")
     private Long id;
 
-    @Column(name = "nome_estado")
+    @Column(name = "estado")
     private String estado;
 
     @Transient
@@ -62,11 +62,13 @@ public class Estado implements Serializable{
     public Estado() {
     }
 
-    public Estado(Long id, String estado) {
+    public Estado(Long id, String estado, List<Usuario> usuarios, List<Loja> lojas) {
         this.id = id;
         this.estado = estado;
+        this.usuarios = usuarios;
+        this.lojas = lojas;
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -81,6 +83,22 @@ public class Estado implements Serializable{
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public List<Loja> getLojas() {
+        return lojas;
+    }
+
+    public void setLojas(List<Loja> lojas) {
+        this.lojas = lojas;
     }
     
 }
