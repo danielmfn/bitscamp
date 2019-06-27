@@ -12,9 +12,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.springframework.security.core.GrantedAuthority;
+
 @Entity
 @Table(name = "tb_categoria_usuario")
-public class CategoriaUsuario implements Serializable{
+public class CategoriaUsuario implements Serializable, GrantedAuthority {
 
     private static final long serialVersionUID = 1L;
 
@@ -87,5 +89,11 @@ public class CategoriaUsuario implements Serializable{
     public void setUsuarios(List<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
+
+    @Override
+	public String getAuthority() {
+		// TODO Auto-generated method stub
+		return this.categoria;
+	}
     
 }
