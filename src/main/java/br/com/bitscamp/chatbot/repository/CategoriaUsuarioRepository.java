@@ -8,4 +8,5 @@ import br.com.bitscamp.chatbot.model.CategoriaUsuario;
 @Repository
 public interface CategoriaUsuarioRepository extends JpaRepository<CategoriaUsuario, Long> {
 
+
 }
