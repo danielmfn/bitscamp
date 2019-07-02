@@ -45,5 +45,7 @@ public class PagesResource {
         return "pages/cliente/manter_perfil";
     }
 
+    @RequestMapping("/login")
+    public String login() { return "pages/autenticacao/login"; }
 
 }

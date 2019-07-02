@@ -26,7 +26,6 @@ public class PerfilCliente implements Serializable{
     @Column(name = "perfil_cliente")
     private String perfil;
 
-    @Transient
     @OneToMany(mappedBy = "perfil")
     private List<Usuario> usuarios;
 

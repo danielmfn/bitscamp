@@ -3,14 +3,7 @@ package br.com.bitscamp.chatbot.model;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 //import org.springframework.security.core.GrantedAuthority;
 
@@ -28,7 +21,10 @@ public class CategoriaUsuario implements Serializable {
     @Column(name = "categoria_usuario")
     private String categoria;
 
-    @Transient
+
+    @ManyToMany
+    private List<Permissao> permissoes;
+
     @OneToMany(mappedBy = "categoria")
     private List<Usuario> usuarios;
 
@@ -60,9 +56,9 @@ public class CategoriaUsuario implements Serializable {
     public CategoriaUsuario() {
     }
 
-    public CategoriaUsuario(Long id, String categoria, List<Usuario> usuarios) {
-        this.id = id;
+    public CategoriaUsuario(String categoria, List<Permissao> permissoes, List<Usuario> usuarios) {
         this.categoria = categoria;
+        this.permissoes = permissoes;
         this.usuarios = usuarios;
     }
 
@@ -90,10 +86,12 @@ public class CategoriaUsuario implements Serializable {
         this.usuarios = usuarios;
     }
 
-//    @Override
-//	public String getAuthority() {
-//		// TODO Auto-generated method stub
-//		return this.categoria;
-//	}
-    
+    public List<Permissao> getPermissoes() {
+        return permissoes;
+    }
+
+    public void setPermissoes(List<Permissao> permissoes) {
+        this.permissoes = permissoes;
+    }
+
 }

@@ -26,11 +26,9 @@ public class Estado implements Serializable{
     @Column(name = "estado")
     private String estado;
 
-    @Transient
     @OneToMany(mappedBy = "estado")
     private List<Usuario> usuarios;
 
-    @Transient
     @OneToMany(mappedBy = "estado")
     private List<Loja> lojas;
 

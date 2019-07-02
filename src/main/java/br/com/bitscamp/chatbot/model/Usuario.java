@@ -1,16 +1,9 @@
 package br.com.bitscamp.chatbot.model;
 
 import java.io.Serializable;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
+import javax.persistence.*;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -48,6 +41,10 @@ public class Usuario implements Serializable {
     @JoinColumn(name = "id_categoria_usuario", nullable = false)
     private CategoriaUsuario categoria;
 
+    @Transient
+    @ManyToMany
+    private List<Permissao> permissoes;
+
     @ManyToOne
     @JoinColumn(name = "id_perfil_cliente", nullable = false)
     private PerfilCliente perfil;
@@ -84,9 +81,7 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(Long id, String nome, String email, String senha, String municipio, String endereco, Long cep,
-            Long telefone, CategoriaUsuario categoria, PerfilCliente perfil, Estado estado) {
-        this.id = id;
+    public Usuario(String nome, String email, String senha, String municipio, String endereco, Long cep, Long telefone, CategoriaUsuario categoria, List<Permissao> permissoes, PerfilCliente perfil, Estado estado) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -95,6 +90,7 @@ public class Usuario implements Serializable {
         this.cep = cep;
         this.telefone = telefone;
         this.categoria = categoria;
+        this.permissoes = permissoes;
         this.perfil = perfil;
         this.estado = estado;
     }
@@ -185,6 +181,14 @@ public class Usuario implements Serializable {
 
     public void setEstado(Estado estado) {
         this.estado = estado;
+    }
+
+    public List<Permissao> getPermissoes() {
+        return permissoes;
+    }
+
+    public void setPermissoes(List<Permissao> permissoes) {
+        this.permissoes = permissoes;
     }
 
 }
