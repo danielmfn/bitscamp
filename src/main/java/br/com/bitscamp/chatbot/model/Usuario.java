@@ -40,8 +40,7 @@ public class Usuario implements Serializable {
     @ManyToOne
     @JoinColumn(name = "id_categoria_usuario", nullable = false)
     private CategoriaUsuario categoria;
-
-    @Transient
+    
     @ManyToMany
     private List<Permissao> permissoes;
 
