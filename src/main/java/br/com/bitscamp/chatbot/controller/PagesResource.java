@@ -48,4 +48,7 @@ public class PagesResource {
     @RequestMapping("/login")
     public String login() { return "pages/autenticacao/login"; }
 
+    @RequestMapping("/logout")
+    public String logout() { return "pages/autenticacao/logout"; }
+
 }
