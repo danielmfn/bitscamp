@@ -22,7 +22,7 @@ public class CategoriaUsuario implements Serializable {
     private String categoria;
 
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "categorias")
     private List<Permissao> permissoes;
 
     @OneToMany(mappedBy = "categoria")

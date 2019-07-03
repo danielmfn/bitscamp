@@ -23,7 +23,7 @@ public class Permissao implements Serializable {
 	@ManyToMany(mappedBy = "permissoes")
 	private List<Usuario> usuarios;
 
-	@ManyToMany(mappedBy = "permissoes")
+	@ManyToMany
 	private List<CategoriaUsuario> categorias;
 
 	public Long getId() {
@@ -50,11 +50,11 @@ public class Permissao implements Serializable {
 		this.usuarios = usuarios;
 	}
 
-	public List<CategoriaUsuario> getGrupos() {
+	public List<CategoriaUsuario> getCategorias() {
 		return categorias;
 	}
 
-	public void setGrupos(List<CategoriaUsuario> categorias) {
+	public void setCategorias(List<CategoriaUsuario> categorias) {
 		this.categorias = categorias;
 	}
 

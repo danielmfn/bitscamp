@@ -51,7 +51,7 @@ public class UsuarioUserDetailService implements UserDetailsService {
 		Collection<GrantedAuthority> auths = new ArrayList<>();
 
 		for (CategoriaUsuario categoria: categorias) {
-			List<Permissao> lista = permissoes.findByGruposIn(categoria);
+			List<Permissao> lista = permissoes.findByCategoriasIn(categoria);
 
 			for (Permissao permissao: lista) {
 				auths.add(new SimpleGrantedAuthority("ROLE_" + permissao.getNome()));
