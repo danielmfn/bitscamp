@@ -1,6 +1,7 @@
 package br.com.bitscamp.chatbot.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -23,6 +24,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter{
 		http
 //						.csrf().disable()
 						.authorizeRequests()
+							.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
 							.antMatchers(HttpMethod.GET, "/").hasRole("ADMIN")
 //							.antMatchers(HttpMethod.GET, "/cadastrarEvento").hasRole("ADMIN")
 //							.antMatchers(HttpMethod.POST, "/cadastrarEvento").hasRole("ADMIN")
@@ -40,9 +42,5 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter{
 		.passwordEncoder(new BCryptPasswordEncoder());
 	}
 
-	@Override
-	public void configure(WebSecurity web) throws Exception{
-		web.ignoring().antMatchers("/resources/**", "/webjars/**");
-	}
 
 }
