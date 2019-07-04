@@ -1,11 +1,16 @@
 package br.com.bitscamp.chatbot.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
 import java.io.Serializable;
 import java.util.List;
-
-import javax.persistence.*;
-
-//import org.springframework.security.core.GrantedAuthority;
 
 @Entity
 @Table(name = "tb_categoria_usuario")
@@ -20,7 +25,6 @@ public class CategoriaUsuario implements Serializable {
 
     @Column(name = "categoria_usuario")
     private String categoria;
-
 
     @ManyToMany(mappedBy = "categorias")
     private List<Permissao> permissoes;
