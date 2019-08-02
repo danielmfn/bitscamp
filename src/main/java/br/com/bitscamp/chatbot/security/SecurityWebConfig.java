@@ -25,7 +25,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter{
 //						.csrf().disable()
 						.authorizeRequests()
 							.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-							.antMatchers(HttpMethod.GET, "/").hasRole("ADMIN")
+							.antMatchers(HttpMethod.GET, "/").hasRole("Login - Gestão")
 //							.antMatchers(HttpMethod.GET, "/cadastrarEvento").hasRole("ADMIN")
 //							.antMatchers(HttpMethod.POST, "/cadastrarEvento").hasRole("ADMIN")
 							.anyRequest().authenticated()
