@@ -10,11 +10,6 @@ public class PagesResource {
         return "index";
     }
 
-    @RequestMapping("/exemplo.html")
-    public String indexCopy(){
-        return "index (cópia)";
-    }
-
     @RequestMapping("/base")
     public String base(){
         return "pages/base/base";

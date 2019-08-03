@@ -26,7 +26,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter{
 //						.csrf().disable()
 						.authorizeRequests()
 //							.antMatchers(HttpMethod.GET, "/").hasRole("Login - Gestão")
-							.antMatchers("/index.html", "/").permitAll()
+							.antMatchers("/index.html", "/**").permitAll()
 
 //							.antMatchers(HttpMethod.GET, "/cadastrarEvento").hasRole("ADMIN")
 //							.antMatchers(HttpMethod.POST, "/cadastrarEvento").hasRole("ADMIN")
@@ -34,6 +34,10 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter{
 						.and()
 						.formLogin()
 							.loginPage("/login").permitAll()
+//							.loginPage("/login.html")
+//							.loginProcessingUrl("/perform_login")
+							.defaultSuccessUrl("/index",true)
+//							.failureUrl("/login.html?error=true")
 						.and()
 							.logout()
 							.logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
