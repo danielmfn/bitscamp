@@ -1,4 +1,4 @@
-package br.com.bitscamp.chatbot.data;
+package br.com.bitscamp.chatbot.config;
 
 import java.net.URI;
 import java.net.URISyntaxException;

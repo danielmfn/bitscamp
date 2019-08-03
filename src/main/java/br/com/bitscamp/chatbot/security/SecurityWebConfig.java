@@ -1,5 +1,6 @@
 package br.com.bitscamp.chatbot.security;
 
+import br.com.bitscamp.chatbot.security.UsuarioUserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Configuration;
@@ -24,15 +25,18 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter{
 		http
 //						.csrf().disable()
 						.authorizeRequests()
-							.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-							.antMatchers(HttpMethod.GET, "/").hasRole("Login - Gestão")
+//							.antMatchers(HttpMethod.GET, "/").hasRole("Login - Gestão")
+							.antMatchers("/index.html", "/").permitAll()
+
 //							.antMatchers(HttpMethod.GET, "/cadastrarEvento").hasRole("ADMIN")
 //							.antMatchers(HttpMethod.POST, "/cadastrarEvento").hasRole("ADMIN")
 							.anyRequest().authenticated()
 						.and()
 						.formLogin()
 							.loginPage("/login").permitAll()
-						.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+						.and()
+							.logout()
+							.logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
 	}
 
 	@Override
@@ -40,7 +44,16 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter{
 		builder
 		.userDetailsService(usuarioDetailsService)
 		.passwordEncoder(new BCryptPasswordEncoder());
+
 	}
 
+	@Override
+	public void configure(WebSecurity web) throws Exception {
+		web.ignoring()
+				.antMatchers("/css/**")
+				.antMatchers("/images/**")
+				.antMatchers("/plugins/**")
+				.antMatchers("/js/**");
+	}
 
 }
