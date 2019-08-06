@@ -23,11 +23,13 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http
-//						.csrf().disable()
+						.headers().frameOptions().sameOrigin()
+						.and()
+						.csrf().disable()
 						.authorizeRequests()
 //							.antMatchers(HttpMethod.GET, "/").hasRole("Login - Gestão")
 							.antMatchers("/index.html", "/**").permitAll()
-
+							.antMatchers("/h2/**").permitAll()
 //							.antMatchers(HttpMethod.GET, "/cadastrarEvento").hasRole("ADMIN")
 //							.antMatchers(HttpMethod.POST, "/cadastrarEvento").hasRole("ADMIN")
 							.anyRequest().authenticated()
@@ -58,6 +60,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter{
 				.antMatchers("/images/**")
 				.antMatchers("/plugins/**")
 				.antMatchers("/js/**");
+
 	}
 
 }
