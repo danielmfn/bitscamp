@@ -2,14 +2,14 @@ package br.com.bitscamp.chatbot.enums;
 
 public class UrlEnum {
 
-    public enum Sitema {
+    public enum GestaoFrontEnd {
 
         NOME("Bitscamp"),
-        URL("https://danielmfn.github.io/bitscamp-frontend/");
+        URL("https://danielmfn.github.io/bitscamp-frontend");
 
         private String descricao;
 
-        Sitema(String descricao) {
+        GestaoFrontEnd(String descricao) {
             this.descricao = descricao;
         }
 

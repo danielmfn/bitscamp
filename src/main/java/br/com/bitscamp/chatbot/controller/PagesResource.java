@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PagesResource {
 
-    String urlSistema = UrlEnum.Sitema.URL.getUrl();
+    String urlSistema = UrlEnum.GestaoFrontEnd.URL.getUrl();
 
     @RequestMapping("/")
     public String index(){
