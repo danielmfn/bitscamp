@@ -1,49 +1,52 @@
 package br.com.bitscamp.chatbot.controller;
+import br.com.bitscamp.chatbot.enums.UrlEnum;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PagesResource {
 
+    String urlSistema = UrlEnum.Sitema.URL.getUrl();
+
     @RequestMapping("/")
     public String index(){
-        return "index";
+        return urlSistema+"/index";
     }
 
     @RequestMapping("/base")
     public String base(){
-        return "pages/base/base";
+        return urlSistema+"/pages/base/base";
     }
 
     @RequestMapping("/manter_usuario")
     public String usuario(){
-        return "pages/usuario/manter_usuario";
+        return urlSistema+"/pages/usuario/manter_usuario";
     }
 
     @RequestMapping("/manter_categoria")
     public String categoriaUsuario(){
-        return "pages/usuario/manter_categoria";
+        return urlSistema+"/pages/usuario/manter_categoria";
     }
 
     @RequestMapping("/manter_loja")
     public String loja(){
-        return "pages/loja/manter_loja";
+        return urlSistema+"/pages/loja/manter_loja";
     }
 
     @RequestMapping("/manter_cliente")
     public String cliente(){
-        return "pages/cliente/manter_cliente";
+        return urlSistema+"/pages/cliente/manter_cliente";
     }
 
     @RequestMapping("/manter_perfil")
     public String perfilCliente(){
-        return "pages/cliente/manter_perfil";
+        return urlSistema+"/pages/cliente/manter_perfil";
     }
 
     @RequestMapping("/login")
-    public String login() { return "pages/autenticacao/login"; }
+    public String login() { return urlSistema+"/pages/autenticacao/login"; }
 
     @RequestMapping("/logout")
-    public String logout() { return "pages/autenticacao/logout"; }
+    public String logout() { return urlSistema+"/pages/autenticacao/logout"; }
 
 }
