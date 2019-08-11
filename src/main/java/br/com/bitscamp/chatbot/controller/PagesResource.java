@@ -1,9 +1,9 @@
 package br.com.bitscamp.chatbot.controller;
 import br.com.bitscamp.chatbot.enums.UrlEnum;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class PagesResource {
 
     String urlSistema = UrlEnum.Sitema.URL.getUrl();
