@@ -12,7 +12,7 @@ public class PagesResource {
     @CrossOrigin
     @RequestMapping("/")
     public String index(){
-        return urlSistema+"/index";
+        return urlSistema+"/pages/index";
     }
 
     @CrossOrigin
