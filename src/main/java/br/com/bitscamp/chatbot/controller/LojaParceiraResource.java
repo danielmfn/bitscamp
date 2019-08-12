@@ -7,14 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import br.com.bitscamp.chatbot.model.Loja;
 import br.com.bitscamp.chatbot.repository.LojaParceiraRepository;
@@ -26,16 +19,19 @@ public class LojaParceiraResource {
     @Autowired
     private LojaParceiraRepository lojaParceira;
 
+    @CrossOrigin
     @PostMapping
     public Loja adicionar(@Valid @RequestBody Loja loja) {
         return lojaParceira.save(loja);
     }
 
+    @CrossOrigin
     @GetMapping
     public List<Loja> listar() {
         return lojaParceira.findAll();
     }
 
+    @CrossOrigin
     @GetMapping("/{id}")
     public ResponseEntity<Loja> buscar(@PathVariable Long id) {
         Loja loja = lojaParceira.findById(id).orElse(null);
@@ -47,6 +43,7 @@ public class LojaParceiraResource {
         return ResponseEntity.ok(loja);
     }
 
+    @CrossOrigin
     @PutMapping("/{id}")
 	public ResponseEntity<Loja> atualizar(@PathVariable Long id, 
 		@Valid @RequestBody Loja loja) {
@@ -62,7 +59,8 @@ public class LojaParceiraResource {
             
             return ResponseEntity.ok(existente);
     }
-    
+
+    @CrossOrigin
     @DeleteMapping("/{id}")
 	public ResponseEntity<Void> remover(@PathVariable Long id) {
 		Loja loja = lojaParceira.findById(id).orElse(null);
