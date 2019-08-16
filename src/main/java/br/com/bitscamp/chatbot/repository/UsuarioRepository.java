@@ -7,6 +7,4 @@ import br.com.bitscamp.chatbot.model.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-    Usuario findByemail(String email);
-
 }

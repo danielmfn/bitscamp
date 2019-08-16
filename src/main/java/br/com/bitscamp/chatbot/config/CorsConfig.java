@@ -10,13 +10,7 @@ public class CorsConfig implements WebMvcConfigurer {
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 
-		registry.addMapping("/**")
-						.allowedOrigins(
-										"http://localhost:9000",
-										"https://danielmfn.github.io/bitscamp-frontend")
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD")
-						.allowCredentials(true)
-		;
+		registry.addMapping("/**");
 	}
 
 }

@@ -20,7 +20,7 @@ import br.com.bitscamp.chatbot.model.Estado;
 import br.com.bitscamp.chatbot.repository.EstadoRepository;
 
 @RestController
-@RequestMapping("/estadoRepository")
+@RequestMapping("/estado")
 public class EstadoResource {
 
     @Autowired
