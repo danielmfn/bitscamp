@@ -1,5 +1,8 @@
 package br.com.bitscamp.chatbot.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import java.io.Serializable;
 
 import javax.persistence.Entity;
@@ -13,6 +16,9 @@ import javax.persistence.JoinColumn;
 
 @Entity
 @Table(name = "tb_usuario")
+@JsonIdentityInfo(
+				generator = ObjectIdGenerators.PropertyGenerator.class,
+				property = "id")
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
