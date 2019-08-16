@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.bitscamp.chatbot.model.Usuario;
 import br.com.bitscamp.chatbot.repository.UsuarioRepository;
 
-@RestController
 @RequestMapping("/usuario")
 public class UsuarioResource {
 

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import br.com.bitscamp.chatbot.model.PerfilCliente;
 import br.com.bitscamp.chatbot.repository.PerfilClienteRepository;
 
-@CrossOrigin
 @RestController
 @RequestMapping("/perfilCliente")
 public class PerfilClienteResource {

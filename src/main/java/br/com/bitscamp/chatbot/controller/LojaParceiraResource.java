@@ -19,19 +19,16 @@ public class LojaParceiraResource {
     @Autowired
     private LojaParceiraRepository lojaParceira;
 
-    @CrossOrigin
     @PostMapping
     public Loja adicionar(@Valid @RequestBody Loja loja) {
         return lojaParceira.save(loja);
     }
 
-    @CrossOrigin
     @GetMapping
     public List<Loja> listar() {
         return lojaParceira.findAll();
     }
 
-    @CrossOrigin
     @GetMapping("/{id}")
     public ResponseEntity<Loja> buscar(@PathVariable Long id) {
         Loja loja = lojaParceira.findById(id).orElse(null);
@@ -43,7 +40,6 @@ public class LojaParceiraResource {
         return ResponseEntity.ok(loja);
     }
 
-    @CrossOrigin
     @PutMapping("/{id}")
 	public ResponseEntity<Loja> atualizar(@PathVariable Long id, 
 		@Valid @RequestBody Loja loja) {
@@ -60,7 +56,6 @@ public class LojaParceiraResource {
             return ResponseEntity.ok(existente);
     }
 
-    @CrossOrigin
     @DeleteMapping("/{id}")
 	public ResponseEntity<Void> remover(@PathVariable Long id) {
 		Loja loja = lojaParceira.findById(id).orElse(null);
