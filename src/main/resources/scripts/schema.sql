@@ -1,3 +1,5 @@
+-- https://stackoverflow.com/questions/9652120/h2-sql-create-table-with-multi-column-primary-key
+
 CREATE TABLE public.tb_categoria_usuario (
                                              id_categoria_usuario bigserial NOT NULL,
                                              categoria_usuario varchar(20) NOT NULL,
