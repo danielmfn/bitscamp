@@ -6,7 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import java.io.Serializable;
@@ -25,9 +24,6 @@ public class CategoriaUsuario implements Serializable {
 
     @Column(name = "categoria_usuario")
     private String categoria;
-
-    @ManyToMany(mappedBy = "categorias")
-    private List<Permissao> permissoes;
 
     @OneToMany(mappedBy = "categoria")
     private List<Usuario> usuarios;
@@ -60,9 +56,8 @@ public class CategoriaUsuario implements Serializable {
     public CategoriaUsuario() {
     }
 
-    public CategoriaUsuario(String categoria, List<Permissao> permissoes, List<Usuario> usuarios) {
+    public CategoriaUsuario(String categoria, List<Usuario> usuarios) {
         this.categoria = categoria;
-        this.permissoes = permissoes;
         this.usuarios = usuarios;
     }
 
@@ -88,14 +83,6 @@ public class CategoriaUsuario implements Serializable {
 
     public void setUsuarios(List<Usuario> usuarios) {
         this.usuarios = usuarios;
-    }
-
-    public List<Permissao> getPermissoes() {
-        return permissoes;
-    }
-
-    public void setPermissoes(List<Permissao> permissoes) {
-        this.permissoes = permissoes;
     }
 
 }
