@@ -25,6 +25,9 @@ public class Estado implements Serializable{
     @Column(name = "estado")
     private String estado;
 
+    @Column(name = "uf")
+    private String uf;
+
     @OneToMany(mappedBy = "estado")
     private List<Usuario> usuarios;
 
@@ -59,9 +62,10 @@ public class Estado implements Serializable{
     public Estado() {
     }
 
-    public Estado(Long id, String estado, List<Usuario> usuarios, List<Loja> lojas) {
+    public Estado(Long id, String estado, String uf, List<Usuario> usuarios, List<Loja> lojas) {
         this.id = id;
         this.estado = estado;
+        this.uf = uf;
         this.usuarios = usuarios;
         this.lojas = lojas;
     }
@@ -84,6 +88,14 @@ public class Estado implements Serializable{
 
     public List<Usuario> getUsuarios() {
         return usuarios;
+    }
+
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
     }
 
     public void setUsuarios(List<Usuario> usuarios) {
