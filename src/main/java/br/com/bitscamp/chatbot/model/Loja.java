@@ -1,8 +1,5 @@
 package br.com.bitscamp.chatbot.model;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import java.io.Serializable;
 
 import javax.persistence.Column;
