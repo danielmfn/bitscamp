@@ -1,6 +1,5 @@
 package br.com.bitscamp.chatbot.controller;
 import br.com.bitscamp.chatbot.enums.UrlEnum;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

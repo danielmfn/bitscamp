@@ -1,5 +1,7 @@
 package br.com.bitscamp.chatbot.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -10,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.FetchType;
 
 @Entity
 @Table(name = "tb_estado")
@@ -25,10 +28,15 @@ public class Estado implements Serializable{
     @Column(name = "estado")
     private String estado;
 
-    @OneToMany(mappedBy = "estado")
+    @Column(name = "uf")
+    private String uf;
+
+    @JsonBackReference
+    @OneToMany(mappedBy = "estado", fetch = FetchType.LAZY)
     private List<Usuario> usuarios;
 
-    @OneToMany(mappedBy = "estado")
+    @JsonBackReference
+    @OneToMany(mappedBy = "estado", fetch = FetchType.LAZY)
     private List<Loja> lojas;
 
     @Override
@@ -59,9 +67,10 @@ public class Estado implements Serializable{
     public Estado() {
     }
 
-    public Estado(Long id, String estado, List<Usuario> usuarios, List<Loja> lojas) {
+    public Estado(Long id, String estado, String uf, List<Usuario> usuarios, List<Loja> lojas) {
         this.id = id;
         this.estado = estado;
+        this.uf = uf;
         this.usuarios = usuarios;
         this.lojas = lojas;
     }
@@ -84,6 +93,14 @@ public class Estado implements Serializable{
 
     public List<Usuario> getUsuarios() {
         return usuarios;
+    }
+
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
     }
 
     public void setUsuarios(List<Usuario> usuarios) {
