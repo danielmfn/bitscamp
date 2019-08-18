@@ -1,15 +1,11 @@
 package br.com.bitscamp.chatbot.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "tb_estado")
@@ -28,10 +24,12 @@ public class Estado implements Serializable{
     @Column(name = "uf")
     private String uf;
 
-    @OneToMany(mappedBy = "estado")
+    @JsonBackReference
+    @OneToMany(mappedBy = "estado", fetch = FetchType.LAZY)
     private List<Usuario> usuarios;
 
-    @OneToMany(mappedBy = "estado")
+    @JsonBackReference
+    @OneToMany(mappedBy = "estado", fetch = FetchType.LAZY)
     private List<Loja> lojas;
 
     @Override
