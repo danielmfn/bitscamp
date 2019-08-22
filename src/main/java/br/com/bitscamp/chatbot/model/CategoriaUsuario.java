@@ -21,8 +21,8 @@ public class CategoriaUsuario implements Serializable {
     @Column(name = "categoria_usuario")
     private String categoria;
 
+    @OneToMany(mappedBy = "categoria")
     @JsonBackReference
-    @OneToMany(mappedBy = "categoria", fetch = FetchType.LAZY)
     private List<Usuario> usuarios;
 
     @Override

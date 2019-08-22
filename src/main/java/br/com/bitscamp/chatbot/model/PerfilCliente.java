@@ -21,8 +21,8 @@ public class PerfilCliente implements Serializable{
     @Column(name = "perfil_cliente")
     private String perfil;
 
+    @OneToMany(mappedBy = "perfil")
     @JsonBackReference
-    @OneToMany(mappedBy = "perfil", fetch = FetchType.LAZY)
     private List<Usuario> usuarios;
 
     @Override

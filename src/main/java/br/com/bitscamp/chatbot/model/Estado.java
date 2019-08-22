@@ -24,12 +24,12 @@ public class Estado implements Serializable{
     @Column(name = "uf")
     private String uf;
 
-    @JsonBackReference
-    @OneToMany(mappedBy = "estado", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "estado")
+    @JsonBackReference(value = "usuario")
     private List<Usuario> usuarios;
 
-    @JsonBackReference
-    @OneToMany(mappedBy = "estado", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "estado")
+    @JsonBackReference(value = "loja")
     private List<Loja> lojas;
 
     @Override
