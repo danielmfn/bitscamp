@@ -11,7 +11,11 @@ public class CorsConfig implements WebMvcConfigurer {
 	public void addCorsMappings(CorsRegistry registry) {
 
 		registry.addMapping("/**")
-			.allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD");
+				.allowedOrigins(
+						"http://localhost:63342",
+						"https://danielmfn.github.io/bitscamp-frontend")
+				.allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD")
+				.allowCredentials(true);
 	}
 
 }
