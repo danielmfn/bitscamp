@@ -11,7 +11,7 @@ public class PagesResource {
 
     @RequestMapping("/")
     public String index(){
-        return urlSistema;
+        return urlSistema+"/index";
     }
 
     @RequestMapping("/base")
