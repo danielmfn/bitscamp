@@ -1,13 +1,12 @@
 package br.com.bitscamp.chatbot.controller;
 import br.com.bitscamp.chatbot.enums.UrlEnum;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class PagesResource {
 
-    String urlSistema = UrlEnum.GestaoFrontEnd.URL_DEV.getUrl();
+    String urlSistema = UrlEnum.GestaoFrontEnd.URL_PROD.getUrl();
 
     @RequestMapping("/")
     public String index(){
