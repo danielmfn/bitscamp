@@ -15,7 +15,7 @@ public class CorsConfig implements WebMvcConfigurer {
 						"http://localhost:63342",
 						"https://danielmfn.github.io/bitscamp-frontend")
 				.allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD")
-				.allowedHeaders("Content-Type", "Accept", "X-Requested-With", "remember-me")
+				.allowedHeaders("*")
 				.allowCredentials(true);
 	}
 
