@@ -6,7 +6,7 @@ public class UrlEnum {
 
         NOME("Bitscamp"),
         URL_DEV("http://localhost:63342/bitscamp-frontend"),
-        URL_PROD("https://bitscamp.github.io/bitscamp-frontend");
+        URL_PROD("https://bitscamp.github.io");
 
         private String descricao;
 
