@@ -36,9 +36,9 @@ public class UsuarioResource {
         return usuarioRepositorio.findAll();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Usuario> buscar(@PathVariable Long id) {
-        Usuario usuario = usuarioRepositorio.findById(id).orElse(null);
+    @GetMapping("/{cpf}")
+    public ResponseEntity<Usuario> buscar(@PathVariable String cpf) {
+        Usuario usuario = usuarioRepositorio.findByCpf(cpf);
 
         if (usuario == null) {
             return ResponseEntity.notFound().build();
