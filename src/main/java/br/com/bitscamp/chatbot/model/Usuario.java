@@ -22,10 +22,13 @@ public class Usuario implements Serializable {
 	@Column(name = "id_usuario")
 	private Long id;
 
+	@Column(name = "cpf", nullable = false, length = 14, unique = true)
+	private String cpf;
+
 	@Column(name = "nome_usuario", nullable = false)
 	private String nome;
 
-	@Column(name = "email_usuario", nullable = false)
+	@Column(name = "email_usuario", nullable = false, unique = true)
 	private String email;
 
 	@Column(name = "senha_usuario")
@@ -83,9 +86,8 @@ public class Usuario implements Serializable {
 	public Usuario() {
 	}
 
-	public Usuario(String nome, String email, String senha, String municipio, String endereco,
-					Long cep, Long telefone, CategoriaUsuario categoria, PerfilCliente perfil,
-					Estado estado) {
+	public Usuario(String cpf, String nome, String email, String senha, String municipio, String endereco, Long cep, Long telefone, CategoriaUsuario categoria, PerfilCliente perfil, Estado estado) {
+		this.cpf = cpf;
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
@@ -104,6 +106,14 @@ public class Usuario implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public String getNome() {
