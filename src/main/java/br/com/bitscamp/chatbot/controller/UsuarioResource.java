@@ -36,9 +36,9 @@ public class UsuarioResource {
         return usuarioRepositorio.findAll();
     }
 
-    @GetMapping("/{cpf}")
-    public ResponseEntity<Usuario> buscar(@PathVariable String cpf) {
-        Usuario usuario = usuarioRepositorio.findByCpf(cpf);
+    @GetMapping("/{email}")
+    public ResponseEntity<Usuario> buscar(@PathVariable String email) {
+        Usuario usuario = usuarioRepositorio.findByEmail(email);
 
         if (usuario == null) {
             return ResponseEntity.notFound().build();
@@ -47,10 +47,10 @@ public class UsuarioResource {
         return ResponseEntity.ok(usuario);
     }
 
-    @PutMapping("/{id}")
-	public ResponseEntity<Usuario> atualizar(@PathVariable Long id, 
+    @PutMapping("/{email}")
+	public ResponseEntity<Usuario> atualizar(@PathVariable String email,
 		@Valid @RequestBody Usuario usuario) {
-            Usuario existente = usuarioRepositorio.findById(id).orElse(null);
+            Usuario existente = usuarioRepositorio.findByEmail(email);
 		
             if (existente == null) {
                 return ResponseEntity.notFound().build();
@@ -63,10 +63,10 @@ public class UsuarioResource {
             return ResponseEntity.ok(existente);
     }
     
-    @DeleteMapping("/{id}")
-	public ResponseEntity<Void> remover(@PathVariable Long id) {
-		Usuario usuario = usuarioRepositorio.findById(id).orElse(null);
-		
+    @DeleteMapping("/{email}")
+	public ResponseEntity<Void> remover(@PathVariable String email) {
+		Usuario usuario = usuarioRepositorio.findByEmail(email);
+
 		if (usuario == null) {
 			return ResponseEntity.notFound().build();
 		}

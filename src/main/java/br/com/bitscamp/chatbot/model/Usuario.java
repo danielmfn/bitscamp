@@ -22,7 +22,7 @@ public class Usuario implements Serializable {
 	@Column(name = "id_usuario")
 	private Long id;
 
-	@Column(name = "cpf", nullable = false, length = 14, unique = true)
+	@Column(name = "cpf", length = 14,unique = true)
 	private String cpf;
 
 	@Column(name = "nome_usuario", nullable = false)

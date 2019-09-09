@@ -44,14 +44,14 @@ VALUES('Acre','AC'),
     ('Tocantins','TO');
 
 INSERT INTO tb_usuario(cpf, id_categoria_usuario, nome_usuario, email_usuario, cep_usuario, endereco_usuario, telefone_usuario, senha_usuario, id_perfil_cliente, municipio_usuario, id_estado)
-VALUES('15478965412365', 1, 'Victória Andrade', 'victoria.andrade@bitscamp.com.br', 72451478, 'Rua 01', 61986352220, '', 1, 'Brasília', 4),
-    ('15478965412374', 1, 'Guilherme Santos', 'guilherme.s354@gmail.com', 72451478, 'Rua 02', 61986352225, '', 2, 'Goiania', 2),
-    ('15478965412310', 2, 'Everton Rodrigues', 'h3v3rton@gmail.com', 72451414, 'Rua 03', 61986352214, '', 1, 'Brasília', 11),
-    ('15478965412302', 1, 'Telmo Silva', 'telmosilvah4@outlook.com', 72451419, 'Rua 04', 61986352217, '', 1, 'São Paulo', 7),
-    ('15478965412399', 2, 'Marcelo Fernandes', 'm78@gmail.com', 72451357, 'Rua 05', 61986352240, '', 1, 'Brasília', 3),
-    ('15478965412388', 2, 'Pedro Henrrique', 'pedro.henrrique@bitscamp.com.br', 72451365, 'Rua 06', 61986352257, '', 1, 'Brasília', 1),
-    ('15478965412354', 1, 'Helena Maria', 'h.elena@hotmail.com', 72451111, 'Rua 07', 61986352247, '', 1, 'Brasília', 10),
-    ('15478965412360', 2, 'Maria Eduarda', 'duda87@gmail.com', 72451225, 'Rua 08', 61986352365, '', 1, 'Santos', 8);
+VALUES(null, 1, 'Victória Andrade', 'victoria.andrade@bitscamp.com.br', 72451478, 'Rua 01', 61986352220, null, 1, 'Brasília', 4),
+    (null, 1, 'Guilherme Santos', 'guilherme.s354@gmail.com', 72451478, 'Rua 02', 61986352225, null, 2, 'Goiania', 2),
+    (null, 2, 'Everton Rodrigues', 'h3v3rton@gmail.com', 72451414, 'Rua 03', 61986352214, null, 1, 'Brasília', 11),
+    (null, 1, 'Telmo Silva', 'telmosilvah4@outlook.com', 72451419, 'Rua 04', 61986352217, null, 1, 'São Paulo', 7),
+    (null, 2, 'Marcelo Fernandes', 'm78@gmail.com', 72451357, 'Rua 05', 61986352240, null, 1, 'Brasília', 3),
+    (null, 2, 'Pedro Henrrique', 'pedro.henrrique@bitscamp.com.br', 72451365, 'Rua 06', 61986352257, null, 1, 'Brasília', 1),
+    (null, 1, 'Helena Maria', 'h.elena@hotmail.com', 72451111, 'Rua 07', 61986352247, null, 1, 'Brasília', 10),
+    (null, 2, 'Maria Eduarda', 'duda87@gmail.com', 72451225, 'Rua 08', 61986352365, null, 1, 'Santos', 8);
 
 INSERT INTO tb_loja
 (cnpj_loja, nome_loja, telefone_loja, email_loja, municipio_loja, id_estado, cep_loja, endereco_loja)
