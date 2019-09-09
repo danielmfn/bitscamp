@@ -10,5 +10,7 @@ import java.util.List;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     Usuario findByEmail(String email);
 
-    Usuario countAllById(Long totalUser);
+    Usuario countAllById(Long totalUsuario);
+
+    Usuario countAllByIdAndAndPerfilEqualsCliente(Long totalCliente);
 }
